@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:projecths/controllers/api_all_produk.dart';
 import 'package:projecths/models/all_produk.dart';
+
+String formatRupiah(harga){
+  NumberFormat rupiah = NumberFormat.currency(locale: "id_ID",  symbol: "Rp. ");
+  return rupiah.format(harga);
+}
 
 class ShopPage extends StatefulWidget {
   const ShopPage({super.key});
@@ -40,27 +46,52 @@ class _ShopPageState extends State<ShopPage> {
 class ShopPageView extends StatelessWidget {
   final List<Produk> products;
   const ShopPageView({ required this.products });
-  
-
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      itemCount: products.length,
-      gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2), 
-      itemBuilder: (context, index) {
-        double rupiah = products[index].harga;
-        return Container(
-
-          child: Column(
-            children: [
-              Expanded(child: Image.network(products[index].gambar)),
-              Text(products[index].judul, style: TextStyle(fontWeight: FontWeight.bold),),
-              Text(products[index].kategori, style: TextStyle(color: Colors.grey),),
-              Text("Rp. "+rupiah.toString(), style: TextStyle(fontSize: 18.5),),
-            ],
-          ),
-        );
-      },);
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 8),
+      child: GridView.builder(
+        itemCount: products.length,
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 4,
+          mainAxisSpacing: 4,
+          ), 
+        itemBuilder: (context, index) {
+          double rupiah = products[index].harga * 14000;
+          return Container(
+            margin: EdgeInsets.all(4),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(width: 1, color: Colors.grey),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.grey,
+                  offset: Offset(2, 2),
+                  blurRadius: 2,
+                  )
+              ]
+            ),
+            child: Padding(
+              padding: EdgeInsets.all(8),
+              child: Column(
+                children: [
+                  Expanded(child: Image.network(products[index].gambar)),
+                  Text(
+                    products[index].judul, 
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 2,
+                    ),
+                  Text(products[index].kategori, style: TextStyle(color: Colors.grey),),
+                  Text(formatRupiah(rupiah), style: TextStyle(fontSize: 18.5),),
+                ],
+              ),
+            ),
+          );
+        },),
+    );
   }
 }
