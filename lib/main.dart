@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:projecths/pages/homepage.dart';
-import 'package:projecths/pages/detailpage.dart';
 import 'package:projecths/pages/shoppage.dart';
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     initialRoute: '/',
     routes: {
-      '/'       : (context) => MyApp(),
+      '/'       : (context) => const MyApp(),
     },
   ));
 }
@@ -23,8 +22,8 @@ class _MyAppState extends State<MyApp> {
     int menuDipilih = 0;
 
   List<Widget> halaman = <Widget>[
-    HomePage(),
-    ShopPage(),
+    const HomePage(),
+    const ShopPage(),
   ];
 
   void menuDitap(int index){
